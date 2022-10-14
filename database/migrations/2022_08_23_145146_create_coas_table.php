@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('no_coa');
             $table->string('nama_coa');
             $table->string('jenis_coa');
-            $table->integer('saldo_awal');
+            $table->string('saldo_awal');
             $table->timestamps();
         });
     }

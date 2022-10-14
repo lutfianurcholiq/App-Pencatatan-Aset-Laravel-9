@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aset;
+use App\Models\Jurnal;
 use App\Models\Sekolah;
 use App\Models\Penyusutan;
 use Illuminate\Http\Request;
@@ -62,27 +63,47 @@ class AsetController extends Controller
             // return $nilai_residu;
             $masa_manfaat = 20;
             $residu = $validated['harga_beli'] / $masa_manfaat;
-            $nilai_penyusutan = ($validated['harga_beli'] - $residu) / $masa_manfaat;
+            $nilai_penyusutan_per_tahun = ($validated['harga_beli'] - $residu) / $masa_manfaat;
+            $nilai_penyusutan_per_bulan = $nilai_penyusutan_per_tahun / 12;
 
-            $akumulasi = $nilai_penyusutan+$nilai_penyusutan;
-            $nilai_sisa = $validated['harga_beli'] - $nilai_penyusutan;
+            $akumulasi = $nilai_penyusutan_per_tahun+$nilai_penyusutan_per_tahun;
+            $nilai_sisa = $validated['harga_beli'] - $nilai_penyusutan_per_tahun;
 
-            // for ($i=$validated['tahun']; $i < $masa_manfaat ; $i++) { 
-                
 
-            // }
-
-            Penyusutan::create([
-                'aset_id' => $bank+1,
+            $penyusutan = Penyusutan::create([
                 'sekolah_id' => $validated['sekolah_id'],
                 'masa_manfaat' => $masa_manfaat,
-                'nilai_penyusutan' => $nilai_penyusutan,
+                'nilai_penyusutan_per_tahun' => $nilai_penyusutan_per_tahun,
+                'nilai_penyusutan_per_bulan' => $nilai_penyusutan_per_bulan,
                 'estimasi_nilai_sisa' => $estimasi_nilai_sisa,
                 'akumulasi' => $akumulasi,
                 'nilai_sisa' => $nilai_sisa,
-                'status' => 'Telah disusutkan'
+                'status' => 'telah disusutkan'
 
+            ]);
 
+            $penyusutan->asets()->sync([
+                'aset_id' => $bank
+            ]);
+
+            $susut_id = Penyusutan::get('id')->count();
+
+            Jurnal::create([
+                'coa_id' => 2,
+                'penyusutan_id' => $susut_id,
+                'tgl_jurnal' => date('Y-m-d'),
+                'posisi_dr_cr' => 'Debit',
+                'nominal' => $nilai_penyusutan_per_tahun,
+                'keterangan' => 'Susut'
+            ]);
+
+            Jurnal::create([
+                'coa_id' => 1,
+                'penyusutan_id' => $susut_id,
+                'tgl_jurnal' => date('Y-m-d'),
+                'posisi_dr_cr' => 'Kredit',
+                'nominal' => $nilai_penyusutan_per_tahun,
+                'keterangan' => 'Susut'
             ]);
 
             $validated['status'] = "telah disusutkan";
@@ -102,8 +123,6 @@ class AsetController extends Controller
 
             return redirect('/aset')->with('success','Data Berhasil Di Tambahkan, silakan melakukan penyusutan aset di menu penyusutan');
         }
-
-
     }
 
     /**
@@ -114,7 +133,10 @@ class AsetController extends Controller
      */
     public function show(Aset $aset)
     {
-        
+        return view('admin.aset.show', [
+            'title' => 'Detail Aset',
+            'asets' => $aset
+        ]);
     }
 
     /**

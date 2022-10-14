@@ -16,12 +16,13 @@ return new class extends Migration
         Schema::create('penyusutans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('sekolah_id');
-            $table->foreignId('aset_id');
-            $table->integer('masa_manfaat');
-            $table->integer('nilai_penyusutan');
-            $table->integer('estimasi_nilai_sisa');
-            $table->integer('akumulasi');
-            $table->integer('nilai_sisa');
+            // $table->foreignId('aset_id');
+            $table->string('masa_manfaat');
+            $table->string('nilai_penyusutan_per_tahun');
+            $table->string('nilai_penyusutan_per_bulan');
+            $table->string('estimasi_nilai_sisa');
+            $table->string('akumulasi');
+            $table->string('nilai_sisa');
             $table->string('status');
             $table->timestamps();
         });

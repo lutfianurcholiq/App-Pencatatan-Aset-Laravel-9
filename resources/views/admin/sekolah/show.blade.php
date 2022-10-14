@@ -105,9 +105,6 @@
             
             layerControl = L.control.layers(baseMaps, overlayMaps).addTo(maps);
 
-            function goBack(){
-                window.history.back();
-            }
             
         </script>
 

@@ -65,7 +65,7 @@
                         <div class="form-group row">
                           <label for="password" class="col-sm-2 col-form-label">Password</label>
                           <div class="col-sm-10">
-                            <input type="password" class="form-control @error('email') is-invalid @enderror" id="password" name="password" placeholder="Email">
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="password" min="5" max="7">
                           </div>
                           @error('password')
                             <div class="invalid-feedback">

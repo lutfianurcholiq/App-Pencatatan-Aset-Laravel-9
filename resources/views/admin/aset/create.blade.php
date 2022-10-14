@@ -2,6 +2,12 @@
 
 @section('container')
 
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary mb-2" onclick="goBack()"><i class="fas fa-arrow-left"></i> Kembali</button>
+        </div>
+    </div>
+
     <div class="card" style="width: 50%;">
         <div class="card-header">
             <h3 class="card-title">Catatan</h3>
@@ -40,10 +46,9 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="jenis_aset">Jenis Aset</label>
-                        <select name="jenis_aset" id="jenis_aset" class="form-control @error('jenis_aset') is-invaid @enderror select2bs4">
+                        <select name="jenis_aset" id="jenis_aset" class="form-control @error('jenis_aset') is-invalid @enderror select2bs4">
                             <option value="">Pilih Jenis Aset</option>
                             <option value="aset tetap"> Aset Tetap</option>
-                            {{-- <option value="aset lancar"> Aset Lancar</option> --}}
                         </select>
                         @error('jenis_aset')
                             <div class="invalid-feedback">

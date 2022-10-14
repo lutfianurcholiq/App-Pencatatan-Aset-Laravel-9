@@ -51,10 +51,9 @@
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-danger ml-1" data-toggle="modal" data-target="#ModalDelete{{ $sekolah->id }}"><i class="far fa-trash-alt"></i></button>
-                            <a href="/sekolah/{{ $sekolah->id }}" class="btn btn-primary ml-1"><i class="far fa-eye"></i></a>
-                            {{-- <button type="button" class="btn btn-primary ml-1" data-toggle="modal" data-target="#ModalDetail{{ $sekolah->id }}"><i class="far fa-eye"></i></button> --}}
                             <a href="/sekolah/{{ $sekolah->id }}/edit/" class="btn btn-secondary ml-1"><i class="far fa-edit"></i></a>
+                            <a href="/sekolah/{{ $sekolah->id }}" class="btn btn-primary ml-1"><i class="far fa-eye"></i></a>
+                            <button type="button" class="btn btn-danger ml-1" data-toggle="modal" data-target="#ModalDelete{{ $sekolah->id }}"><i class="far fa-trash-alt"></i></button>
                         </td>
                     </tr>
                     @endforeach

@@ -17,16 +17,27 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|email:dns',
-            'password' => 'min:5|max:7'
-        ]);
         
-        $validated['password'] = bcrypt($validated['password']);
+        if($request->password != NULL){
+            $validated = $request->validate([
+                'name' => 'required|max:255',
+                'email' => 'required|email:dns',
+                'password' => 'min:5|max:7'
+            ]);
+            
+            $validated['password'] = bcrypt($validated['password']);
+            User::where('id', auth()->user()->id)->update($validated);
 
-        User::where('id', auth()->user()->id)->update($validated);
+            return redirect('/profile')->with('success', 'Profile telah berhasil di update dengan password');
+        }else{
+            $validated = $request->validate([
+                'name' => 'required|max:255',
+                'email' => 'required|email:dns',
+            ]);
 
-        return redirect('/profile')->with('success', 'Profile telah berhasil di update');
+            User::where('id', auth()->user()->id)->update($validated);
+            return redirect('/profile')->with('success', 'Profile telah berhasil di update tanpa password');
+        }
+
     }
 }

@@ -35,11 +35,10 @@
                 <tr>
                     <th>No</th>
                     <th>Nama Aset</th>
-                    <th>Jenis Aset</th>
                     <th>Sekolah</th>
-                    <th>Tahun</th>
-                    <th>Harga</th>
-                    <th>Foto</th>
+                    {{-- <th>Tahun</th> --}}
+                    {{-- <th>Harga</th> --}}
+                    {{-- <th>Foto</th> --}}
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -49,38 +48,12 @@
                         {{-- @dd($aset) --}}
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $aset->nama_aset }}</td>
-                        <td>{{ $aset->jenis_aset }}</td>
                         <td>{{ $aset->sekolah->nama_sekolah }}</td>
-                        <td>{{ $aset->tahun }}</td>
-                        <td>@mataUang($aset->harga_beli)</td>
                         <td>
-                            <button style="border: none" data-toggle="modal" data-target="#modalFoto{{ $aset->id }}"><img src="{{ asset('storage/'. $aset->foto_aset) }}" alt="foto aset" width="100px"></button>
-                            
-                        </td>
-                        <td>
-                            <a href="/aset/{{ $aset->id }}/edit" class="btn btn-secondary"><i class="nav-icon fas fa-edit"></i></a>
+                            <a href="/aset/{{ $aset->id }}/edit" class="btn btn-secondary ml-1"><i class="nav-icon fas fa-edit"></i></a>
+                            <a href="/aset/{{ $aset->id }}" class="btn btn-primary ml-1"><i class="nav-icon fas fa-eye"></i></a>
                             <button type="button" data-toggle="modal" data-target="#hapusAset{{ $aset->id }}" class="btn btn-danger ml-1"><i class="nav-icon fas fa-trash"></i></button>
                         </td>
-                        {{-- <td>
-                            @if ($aset->is_active == 'aktif')
-                            <span class="badge badge-success text-uppercase">{{ $aset->is_active }}</span>
-                            @else
-                            <span class="badge badge-danger text-uppercase">{{ $aset->is_active }}</span>
-                            @endif
-                        </td>
-                        <td>
-                            @if($aset->role == 'update role')
-                            <span class="badge badge-info text-uppercase">Update Role</span>
-                            @elseif($aset->role == 'staff')
-                            <span class="badge badge-secondary text-uppercase">{{ $aset->role }}</span>
-                            @elseif($aset->role == 'manager')
-                            <span class="badge badge-primary text-uppercase">{{ $aset->role }}</span>
-                            @endif
-                        </td>
-                        <td>
-                            <button class="btn btn-secondary" data-toggle="modal" data-target="#editUser{{ $aset->id }}"><i class="nav-icon fas fa-edit"></i></button>
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#hapusUser{{ $aset->id }}"><i class="nav-icon fas fa-trash"></i></button>
-                        </td> --}}
                     </tr>
                 @endforeach
             </tbody>

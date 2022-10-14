@@ -58,7 +58,7 @@ $('#deskripsi').summernote({
             success:function(res){
               if(res){
                 $("#cari_aset").empty();
-                $("#cari_aset").append('<option>Pilih Aset</option>');
+                $("#cari_aset").append('<option value=""></option>');
                 $.each(res,function(id,nama_aset){
                     $("#cari_aset").append('<option value="'+id+'">'+nama_aset+'</option>');
                 });
@@ -128,6 +128,11 @@ $('#deskripsi').summernote({
       $('#card-susut').show()
     })
   })
+
+// button kembali
+  function goBack(){
+    window.history.back();
+  }
 
 
 

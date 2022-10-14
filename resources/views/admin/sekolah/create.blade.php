@@ -2,6 +2,12 @@
 
 @section('container')
 
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary mb-2" onclick="goBack()"><i class="fas fa-arrow-left"></i> Kembali</button>
+        </div>
+    </div>
+
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">{{ $title }}</h3>
@@ -44,6 +50,7 @@
                                     <option value="">Pilih Kategori</option>
                                     <option value="Negeri">Negeri</option>
                                     <option value="Swasta">Swasta</option>
+                                    <option value="Luar Biasa">Luar Biasa - SLB</option>
                                 </select>
                                 @error('kategori')
                                     <div class="invalid-feedback">

@@ -28,6 +28,7 @@
             <a href="/dashboard" class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p></a>
           </li>
+          @can('IsStaff')
           <li class="nav-header">Master Data</li>
           <li class="nav-item">
             <a href="/aset" class="nav-link {{ Request::is('aset*') ? 'active' : '' }}"><i class=" nav-icon far fa-folder"></i> <p> Aset</p></a>
@@ -41,25 +42,41 @@
           <li class="nav-item">
             <a href="/coa" class="nav-link {{ Request::is('coa*') ? 'active' : '' }}"><i class="nav-icon fas fa-list-ol"></i> <p>Chart of Account</p></a>
           </li>
-          {{-- <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link"><i class="nav-icon far fa-clipboard"></i> <p>Gallery</p></a>
-          </li> --}}
           <li class="nav-header">Transaction</li>
           <li class="nav-item">
             <a href="/penyusutan" class="nav-link {{ Request::is('penyusutan*') ? 'active' : '' }}"><i class="nav-icon fas fa-calculator"></i> <p>Penyusutan</p></a>
           </li>
+          @endcan
+          @can('IsManager')
           <li class="nav-header">Report</li>
           <li class="nav-item">
-            <a href="/" class="nav-link {{ Request::is('profile*') ? 'active' : '' }}"><i class="nav-icon far fa-folder"></i> <p>Laporan Penyusutan</p></a>
+            <a href="" class="nav-link  {{ Request::is('laporan*') ? 'active' : '' }}">
+              <i class="nav-icon far fa-folder"></i>
+              <p>Aset<i class="fas fa-angle-left right"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/laporan/kartu_aset" class="nav-link {{ Request::is('laporan*') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kartu Penyusutan</p>
+                </a>
+              </li>
+            </ul>
           </li>
+          <li class="nav-item">
+            <a href="/jurnal" class="nav-link {{ Request::is('jurnal*') ? 'active' : '' }}"><i class="nav-icon fas fa-receipt"></i> <p>Jurnal</p></a>
+          </li>
+          @endcan
           <li class="nav-header">Profile</li>
           <li class="nav-item">
             <a href="/profile" class="nav-link {{ Request::is('profile*') ? 'active' : '' }}"><i class="nav-icon far fa-user"></i> <p>Profile</p></a>
           </li>
+          @can('IsAdmin')
           <li class="nav-header">Pengaturan</li>
-          <li class="nav-item">
+          <li class="nav-item mb-5">
             <a href="/activeUser" class="nav-link {{ Request::is('activeUser*') ? 'active' : '' }}"><i class="nav-icon far fa-user-circle"></i> <p>User</p></a>
           </li>
+          @endcan
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

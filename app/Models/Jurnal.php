@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Coa extends Model
+class Jurnal extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
+    protected $dates = ['tgl_jurnal'];
 
-    public function jurnals()
+    public function coa()
     {
-        return $this->hasMany(Jurnal::class);
+        return $this->belongsTo(Coa::class);
     }
 }

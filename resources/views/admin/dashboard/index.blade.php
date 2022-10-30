@@ -110,9 +110,9 @@
         </div>
       </div>
     </div>
-  </section>
+</section>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
       var ctx = document.getElementById("barChart").getContext('2d');
@@ -170,5 +170,5 @@
       //       responsive: true
       //     }
       // });
-    </script>
+</script>
 @endsection

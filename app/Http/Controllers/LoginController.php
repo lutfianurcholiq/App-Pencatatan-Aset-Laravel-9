@@ -43,6 +43,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login')->with('warning', 'Your Are Loggout Right Now');
+        return redirect('/login')->with('warning', 'Anda Telah Berhasil Logout');
     }
 }

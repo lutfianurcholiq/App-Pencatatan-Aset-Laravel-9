@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2022 at 06:15 AM
+-- Generation Time: Oct 30, 2022 at 01:11 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -40,19 +40,6 @@ CREATE TABLE `asets` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `asets`
---
-
-INSERT INTO `asets` (`id`, `sekolah_id`, `jenis_aset`, `nama_aset`, `tahun`, `harga_beli`, `foto_aset`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'aset tetap', 'GEDUNG AULA', '2020', '120000000', 'testing', 'belum disusutkan', '2022-10-13 21:12:55', '2022-10-13 21:12:55'),
-(2, 2, 'aset tetap', 'GEDUNG BASKET', '2020', '120000000', 'testing', 'belum disusutkan', '2022-10-13 21:12:55', '2022-10-13 21:12:55'),
-(3, 3, 'aset tetap', 'LAPANGAN TENIS', '2020', '120000000', 'testing', 'belum disusutkan', '2022-10-13 21:12:55', '2022-10-13 21:12:55'),
-(4, 1, 'aset tetap', 'GEDUNG LAB KOMPUTER', '2020', '190000000', 'testing', 'belum disusutkan', '2022-10-13 21:12:55', '2022-10-13 21:12:55'),
-(5, 2, 'aset tetap', 'LAPANGAN', '2010', '180000000', 'testing', 'belum disusutkan', '2022-10-13 21:12:55', '2022-10-13 21:12:55'),
-(6, 1, 'aset tetap', 'GEDUNG 20 LANTAI', '2008', '150000000', 'testing', 'belum disusutkan', '2022-10-13 21:12:55', '2022-10-13 21:12:55'),
-(7, 3, 'aset tetap', 'GEDUNG DIATAS LANGIT', '2020', '110000000', 'testing', 'belum disusutkan', '2022-10-13 21:12:55', '2022-10-13 21:12:55');
-
 -- --------------------------------------------------------
 
 --
@@ -85,8 +72,8 @@ CREATE TABLE `coas` (
 --
 
 INSERT INTO `coas` (`id`, `no_coa`, `nama_coa`, `jenis_coa`, `saldo_awal`, `created_at`, `updated_at`) VALUES
-(1, 114, 'Akumulasi Penyusutan Gedung', '1', '0', '2022-10-13 21:12:56', '2022-10-13 21:12:56'),
-(2, 601, 'Beban Akumulasi Penyusutan Gedung', '5', '0', '2022-10-13 21:12:57', '2022-10-13 21:12:57');
+(1, 114, 'Akumulasi Penyusutan Gedung', '1', '0', '2022-10-30 05:09:27', '2022-10-30 05:09:27'),
+(2, 601, 'Beban Akumulasi Penyusutan Gedung', '5', '0', '2022-10-30 05:09:27', '2022-10-30 05:09:27');
 
 -- --------------------------------------------------------
 
@@ -141,10 +128,10 @@ CREATE TABLE `kecamatans` (
 --
 
 INSERT INTO `kecamatans` (`id`, `kota_id`, `nama_kecamatan`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Kec.Babakan', '2022-10-13 21:12:53', '2022-10-13 21:12:53'),
-(2, 1, 'Kec.DayeuhKolot', '2022-10-13 21:12:53', '2022-10-13 21:12:53'),
-(3, 1, 'Kec.Antapani', '2022-10-13 21:12:53', '2022-10-13 21:12:53'),
-(4, 1, 'Kec.Kopo', '2022-10-13 21:12:53', '2022-10-13 21:12:53');
+(1, 1, 'Kec.Babakan', '2022-10-30 05:09:27', '2022-10-30 05:09:27'),
+(2, 1, 'Kec.DayeuhKolot', '2022-10-30 05:09:27', '2022-10-30 05:09:27'),
+(3, 1, 'Kec.Antapani', '2022-10-30 05:09:27', '2022-10-30 05:09:27'),
+(4, 1, 'Kec.Kopo', '2022-10-30 05:09:27', '2022-10-30 05:09:27');
 
 -- --------------------------------------------------------
 
@@ -164,7 +151,7 @@ CREATE TABLE `kotas` (
 --
 
 INSERT INTO `kotas` (`id`, `nama_kota`, `created_at`, `updated_at`) VALUES
-(1, 'Bandung', '2022-10-13 21:12:53', '2022-10-13 21:12:53');
+(1, 'Bandung', '2022-10-30 05:09:27', '2022-10-30 05:09:27');
 
 -- --------------------------------------------------------
 
@@ -268,20 +255,6 @@ CREATE TABLE `sekolahs` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `sekolahs`
---
-
-INSERT INTO `sekolahs` (`id`, `kota_id`, `kecamatan_id`, `nama_sekolah`, `kategori`, `tahun`, `jumlah_siswa`, `alamat`, `lokasi`, `foto`, `deskripsi`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'SMA 1 Bojongsoang', 'Swasta', '2012', '1000', 'Dayeuhkolot', '-6.968589262292169,107.63414962442548', 'testing', 'testing', '2022-10-13 21:12:54', '2022-10-13 21:12:54'),
-(2, 1, 2, 'SMA 2 Bojongsoang', 'Swasta', '2000', '1000', 'Dayeuhkolot', '-6.968589262292169,107.63414962442548', 'testing', 'testing', '2022-10-13 21:12:54', '2022-10-13 21:12:54'),
-(3, 1, 2, 'SMA 3 Bojongsoang', 'Swasta', '1990', '1000', 'Dayeuhkolot', '-6.972132064698354,107.64026751396528', 'testing', 'testing', '2022-10-13 21:12:54', '2022-10-13 21:12:54'),
-(4, 1, 2, 'SMA 4 Bojongsoang', 'Swasta', '1990', '200', 'Dayeuhkolot', '-6.972132064698354,107.64026751396528', 'testing', 'testing', '2022-10-13 21:12:54', '2022-10-13 21:12:54'),
-(5, 1, 2, 'SMA 5 Bojongsoang', 'Swasta', '1990', '150', 'Dayeuhkolot', '-6.972132064698354,107.64026751396528', 'testing', 'testing', '2022-10-13 21:12:54', '2022-10-13 21:12:54'),
-(6, 1, 1, 'SMA 6 Bojongsoang', 'Swasta', '2000', '250', 'Dayeuhkolot', '-6.972132064698354,107.64026751396528', 'testing', 'testing', '2022-10-13 21:12:54', '2022-10-13 21:12:54'),
-(7, 1, 1, 'SMA 7 Bojongsoang', 'Swasta', '2001', '1500', 'Dayeuhkolot', '-6.972132064698354,107.64026751396528', 'testing', 'testing', '2022-10-13 21:12:54', '2022-10-13 21:12:54'),
-(8, 1, 3, 'SMA 8 Bojongsoang', 'Swasta', '2005', '900', 'Dayeuhkolot', '-6.972132064698354,107.64026751396528', 'testing', 'testing', '2022-10-13 21:12:54', '2022-10-13 21:12:54');
-
 -- --------------------------------------------------------
 
 --
@@ -304,9 +277,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `role`, `is_active`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Fitriani Adela', 'fitri@gmail.com', 'admin', 'aktif', '$2y$10$DhYE0tCPuDXyO.5SMXX6s..lDBNMg1JRKKmMmASURrZGLe4Judrjq', '2022-10-13 21:12:52', '2022-10-13 21:12:52'),
-(2, 'Lutfian', 'upil@gmail.com', 'staff', 'nonaktif', '$2y$10$lYIgV3ijFTF5/S90pQ2qiO904Y73mFblNIyueL0InPEdne7Cob0F.', '2022-10-13 21:12:52', '2022-10-13 21:12:52'),
-(3, 'udilan', 'udilan@gmail.com', 'manager', 'aktif', '$2y$10$SBTlfTZMq0Y2ZQJRLbGLXuF1DFrOmc0q72U/WNNgKShWnL04YcDKm', '2022-10-13 21:12:52', '2022-10-13 21:12:52');
+(1, 'Admin Test', 'test@gmail.com', 'admin', 'aktif', '$2y$10$xiLyi1jgk9VJtlYDB455/evLbwuVSWJuooFt2s3uE4DS7bqbeJThu', '2022-10-30 05:09:27', '2022-10-30 05:09:27');
 
 --
 -- Indexes for dumped tables
@@ -402,7 +373,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `asets`
 --
 ALTER TABLE `asets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `coas`
@@ -456,13 +427,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `sekolahs`
 --
 ALTER TABLE `sekolahs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

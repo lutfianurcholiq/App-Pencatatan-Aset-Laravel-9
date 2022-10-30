@@ -23,23 +23,9 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         User::create([
-            'name' => 'Fitriani Adela',
-            'email' => 'fitri@gmail.com',
+            'name' => 'Admin Test',
+            'email' => 'test@gmail.com',
             'role' => 'admin',
-            'is_active' => "aktif",
-            'password' => bcrypt(123456)
-        ]);
-        User::create([
-            'name' => 'Lutfian',
-            'email' => 'upil@gmail.com',
-            'role' => 'staff',
-            'is_active' => "nonaktif",
-            'password' => bcrypt(123456)
-        ]);
-        User::create([
-            'name' => 'udilan',
-            'email' => 'udilan@gmail.com',
-            'role' => 'manager',
             'is_active' => "aktif",
             'password' => bcrypt(123456)
         ]);

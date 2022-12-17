@@ -2,6 +2,15 @@
 
 @section('container')
 
+    <div class="row">
+        <div class="col">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item active">Kartu Penyusutan</li>
+        </ol>
+        </div>
+    </div>
+
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">{{ $title }}</h3>
@@ -19,7 +28,7 @@
                 </thead>
                 <tbody>
                     @foreach ($susut as $st)
-                        @if ($st->status == "telah disusutkan")
+                        @if ($st->status == 'telah disusutkan')
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $st->nama_aset }}</td>

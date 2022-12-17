@@ -3,6 +3,15 @@
 @section('container')
 
     <div class="row">
+        <div class="col">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item active">Master Data Sekolah</li>
+        </ol>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-12">
             @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -20,19 +29,19 @@
             <h3 class="card-title">{{ $title }}</h3>
         </div>
         <div class="card-body">
-            <a href="sekolah/create" class="btn btn-primary mb-3"><i class="nav-icon fas fa-plus"></i> Create</a>
-            <button class="btn btn-info float-right" onclick="print()"><i class="nav-icon fas fa-print"> </i> Print</button>
+            @if (auth()->user()->role != 'admin')
+                <a href="sekolah/create" class="btn btn-primary mb-3"><i class="nav-icon fas fa-plus"></i> Tambah</a>
+                <button class="btn btn-info float-right" onclick="print()"><i class="nav-icon fas fa-print"> </i></button>
+            @else
+                <button class="btn btn-info mb-3" onclick="print()"><i class="nav-icon fas fa-print"> </i></button>
+            @endif
         <table id="dataTables" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>No</th>
                     <th>Nama Sekolah</th>
                     <th>Kategori</th>
-                    {{-- <th>Tahun</th> --}}
-                    {{-- <th>Alamat</th> --}}
-                    {{-- <th>Lokasi</th> --}}
                     <th>Foto</th>
-                    {{-- <th>Deskripsi</th> --}}
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -51,9 +60,11 @@
                             </button>
                         </td>
                         <td>
+                            <a href="/sekolah/{{ $sekolah->id }}" class="btn btn-primary"><i class="far fa-eye"></i></a>
+                            @if (auth()->user()->role != 'admin')
                             <a href="/sekolah/{{ $sekolah->id }}/edit/" class="btn btn-secondary ml-1"><i class="far fa-edit"></i></a>
-                            <a href="/sekolah/{{ $sekolah->id }}" class="btn btn-primary ml-1"><i class="far fa-eye"></i></a>
-                            <button type="button" class="btn btn-danger ml-1" data-toggle="modal" data-target="#ModalDelete{{ $sekolah->id }}"><i class="far fa-trash-alt"></i></button>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalDelete{{ $sekolah->id }}"><i class="far fa-trash-alt"></i></button>
+                            @endif
                         </td>
                     </tr>
                     @endforeach

@@ -38,7 +38,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::resource('/aset', AsetController::class)->middleware(['auth','staff']);
 
 // Maps
-Route::get('/maps', [MapsController::class, 'index'])->middleware(['auth','staff']);
+Route::get('/maps', [MapsController::class, 'index'])->middleware('auth');
 
 // Profile
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');

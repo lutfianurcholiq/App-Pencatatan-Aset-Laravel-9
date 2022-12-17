@@ -33,6 +33,6 @@ class RegistrationController extends Controller
             'password' => $request->password
         ]);
 
-        return redirect('/login')->with('success', 'Your Account Success, Please Login');
+        return redirect('/login')->with('success', 'Registrasi Berhasil, Silahkan Login');
     }
 }

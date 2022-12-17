@@ -3,8 +3,15 @@
 @section('container')
 
     <div class="row">
-        <div class="col">
+        <div class="col-sm-6">
             <button class="btn btn-primary mb-2" onclick="goBack()"><i class="fas fa-arrow-left"></i> Kembali</button>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="/sekolah">Master Data Sekolah</a></li>
+                <li class="breadcrumb-item active">Tambah Data Sekolah</li>
+            </ol>
         </div>
     </div>
 
@@ -146,7 +153,7 @@
                                 </div>
                             @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </div>
         </div>
@@ -184,7 +191,7 @@
         var maps = L.map('map', {
             center: [-6.972669, 107.63933],
             zoom: 12,
-            layers: [osm, satellite]
+            layers: [streets]
         });
 
         var baseMaps = {

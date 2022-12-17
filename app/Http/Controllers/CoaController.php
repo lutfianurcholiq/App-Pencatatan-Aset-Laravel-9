@@ -27,8 +27,11 @@ class CoaController extends Controller
      */
     public function create()
     {
+        if(auth()->user()->role == 'admin'){
+            return redirect('/aset')->with('error','Tidak bisa akses halaman tersebut');
+        }
         return view('admin.coa.create', [
-            'title' => "Create Chart of Account"
+            'title' => "Tambah Chart of Account"
         ]);
     }
 
@@ -72,8 +75,11 @@ class CoaController extends Controller
      */
     public function edit(Coa $coa)
     {
+        if(auth()->user()->role == 'admin'){
+            return redirect('/aset')->with('error','Tidak bisa akses halaman tersebut');
+        }
         return view('admin.coa.edit', [
-            'title' => "Edit Chart of Account",
+            'title' => "Ubah Chart of Account",
             'coas' => $coa
         ]);
     }

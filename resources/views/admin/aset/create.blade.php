@@ -3,8 +3,15 @@
 @section('container')
 
     <div class="row">
-        <div class="col">
-            <button class="btn btn-primary mb-2" onclick="goBack()"><i class="fas fa-arrow-left"></i> Kembali</button>
+        <div class="col-sm-6">
+            <button class="btn btn-primary" onclick="goBack()"><i class="fas fa-arrow-left"></i> Kembali</button>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right mb-0">
+                <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="/aset">Master Data Aset</a></li>
+                <li class="breadcrumb-item active">Tambah Data Aset</li>
+            </ol>
         </div>
     </div>
 
@@ -123,7 +130,7 @@
                 <p class="text-danger">*Opsional, Perhitungan dapat dilakukan di menu <a href="/penyusutan" style="text-decoration: none">penyusutan</a></p>
             </div>
             <input type="hidden" name="status" id="status" value="" readonly>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
         </form>
     </div>

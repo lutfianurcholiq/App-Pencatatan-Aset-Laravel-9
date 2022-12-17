@@ -3,6 +3,15 @@
 @section('container')
 
     <div class="row">
+        <div class="col">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item active">User</li>
+        </ol>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-12">
         @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -59,7 +68,7 @@
                                     <span class="badge badge-info text-uppercase">Update Role</span>
                                     @elseif($user->role == 'staff')
                                     <span class="badge badge-secondary text-uppercase">{{ $user->role }}</span>
-                                    @elseif($user->role == 'manager')
+                                    @elseif($user->role == 'kabag')
                                     <span class="badge badge-primary text-uppercase">{{ $user->role }}</span>
                                     @endif
                                 </td>
@@ -99,7 +108,7 @@
             {{-- End Modal --}}
     
             {{-- Modal Edit User --}}
-            <div class="modal fade" id="editUser{{ $user->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="editUser{{ $user->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
                 <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -117,7 +126,7 @@
                                     <select name="role" id="role" class="form-control @error('role') is-invalid @enderror select2bs4">
                                         <option value="">Pilih Role</option>
                                         <option value="staff">Staff</option>
-                                        <option value="manager">Manager</option>
+                                        <option value="kabag">Kepala Bagian</option>
                                     </select>
                                 </div>
                             @elseif($user->is_active == 'aktif')
@@ -137,7 +146,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-                            <button type="submit" class="btn btn-danger">Update</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </form>
                 </div>

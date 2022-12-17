@@ -32,7 +32,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('IsManager', function (User $user){
-            return $user->role == 'manager' || $user->role == 'admin';
+            return $user->role == 'kabag' || $user->role == 'admin';
         });
 
         Gate::define('IsStaff', function (User $user){

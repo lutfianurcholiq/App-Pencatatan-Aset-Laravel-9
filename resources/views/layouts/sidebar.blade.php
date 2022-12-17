@@ -37,18 +37,19 @@
             <a href="/sekolah" class="nav-link {{ Request::is('sekolah*') ? 'active' : '' }}"><i class="nav-icon fas fa-school"></i> <p>Sekolah</p></a>
           </li>
           <li class="nav-item">
-            <a href="/maps" class="nav-link {{ Request::is('maps*') ? 'active' : '' }}"><i class="nav-icon far fa-map"></i> <p>Maps</p></a>
-          </li>
-          <li class="nav-item">
             <a href="/coa" class="nav-link {{ Request::is('coa*') ? 'active' : '' }}"><i class="nav-icon fas fa-list-ol"></i> <p>Chart of Account</p></a>
           </li>
-          <li class="nav-header">Transaction</li>
+          <li class="nav-header">Transaksi</li>
           <li class="nav-item">
             <a href="/penyusutan" class="nav-link {{ Request::is('penyusutan*') ? 'active' : '' }}"><i class="nav-icon fas fa-calculator"></i> <p>Penyusutan</p></a>
           </li>
           @endcan
           @can('IsManager')
-          <li class="nav-header">Report</li>
+          <li class="nav-header">Maps</li>
+          <li class="nav-item">
+            <a href="/maps" class="nav-link {{ Request::is('maps*') ? 'active' : '' }}"><i class="nav-icon far fa-map"></i> <p>Maps</p></a>
+          </li>
+          <li class="nav-header">Laporan</li>
           <li class="nav-item">
             <a href="" class="nav-link  {{ Request::is('laporan*') ? 'active' : '' }}">
               <i class="nav-icon far fa-folder"></i>
@@ -67,12 +68,11 @@
             <a href="/jurnal" class="nav-link {{ Request::is('jurnal*') ? 'active' : '' }}"><i class="nav-icon fas fa-receipt"></i> <p>Jurnal</p></a>
           </li>
           @endcan
-          <li class="nav-header">Profile</li>
+          <li class="nav-header">Pengaturan</li>
           <li class="nav-item">
             <a href="/profile" class="nav-link {{ Request::is('profile*') ? 'active' : '' }}"><i class="nav-icon far fa-user"></i> <p>Profile</p></a>
           </li>
           @can('IsAdmin')
-          <li class="nav-header">Pengaturan</li>
           <li class="nav-item mb-5">
             <a href="/activeUser" class="nav-link {{ Request::is('activeUser*') ? 'active' : '' }}"><i class="nav-icon far fa-user-circle"></i> <p>User</p></a>
           </li>

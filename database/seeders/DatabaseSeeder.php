@@ -30,6 +30,22 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt(123456)
         ]);
 
+        User::create([
+            'name' => 'Admin Staff',
+            'email' => 'staff@gmail.com',
+            'role' => 'staff',
+            'is_active' => "aktif",
+            'password' => bcrypt(123456)
+        ]);
+
+        User::create([
+            'name' => 'Admin KaBag',
+            'email' => 'kabag@gmail.com',
+            'role' => 'kepala bagian',
+            'is_active' => "aktif",
+            'password' => bcrypt(123456)
+        ]);
+
         $this->call([
             // AsetSeeder::class,
             KecamatanSeeder::class,

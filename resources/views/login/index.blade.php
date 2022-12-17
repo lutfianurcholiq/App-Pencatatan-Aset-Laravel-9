@@ -71,7 +71,7 @@
       </form>
       <hr>
       <p class="mt-2 mb-2">
-        Don't Have Account?<a href="/registration" class="text-center"> Registration Here</a>
+        Belum Punya Akun?<a href="/registration" class="text-center"> Registrasi Disini</a>
       </p>
     </div>
   </div>

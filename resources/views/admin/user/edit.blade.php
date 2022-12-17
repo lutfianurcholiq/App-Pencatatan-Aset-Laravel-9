@@ -26,7 +26,7 @@
                 <select name="role" id="role" class="form-control @error('role') is-invalid @enderror select2bs4">
                     <option value="">Pilih Role</option>
                     <option value="staff">Staff</option>
-                    <option value="manager">Manager</option>
+                    <option value="kabag">Kepala Bagian</option>
                 </select>
             </div>
         </div>

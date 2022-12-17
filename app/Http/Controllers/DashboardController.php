@@ -16,6 +16,7 @@ class DashboardController extends Controller
             $kecamatan = Sekolah::with('kecamatan')->get('kecamatan_id');
             $negeri = Sekolah::where('kategori','Negeri')->count();
             $swasta = Sekolah::where('kategori','Swasta')->count();
+            $lb = Sekolah::where('kategori','Luar Biasa')->count();
             $kcmtn = Kecamatan::pluck('nama_kecamatan');
             
             $jmlh_aset = DB::table('sekolahs')
@@ -39,7 +40,8 @@ class DashboardController extends Controller
                 'kcmtn' => $kcmtn,
                 'kecamatan' => $kecamatan,
                 'aset' => $jmlh_aset,
-                'sklh' => $jmlh_sklh
+                'sklh' => $jmlh_sklh,
+                'lb' => $lb
             ]);
         }else{
             return redirect('/login')->with('failed','Status anda tidak aktif, silahkan hubungi admin');

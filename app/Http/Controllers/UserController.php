@@ -70,7 +70,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, User $user)
     {
         // return $request;
         $request->validate([
@@ -96,7 +96,6 @@ class UserController extends Controller
             return redirect('/activeUser')->with('success','Berhasil mengaktifkan user');
         }
     }
-
     /**
      * Remove the specified resource from storage.
      *

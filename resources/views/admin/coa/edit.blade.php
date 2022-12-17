@@ -6,6 +6,13 @@
         <div class="col">
             <button class="btn btn-primary mb-2" onclick="goBack()"><i class="fas fa-arrow-left"></i> Kembali</button>
         </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="/coa">Master Data COA</a></li>
+                <li class="breadcrumb-item active">Edit Data COA</li>
+            </ol>
+        </div>
     </div>
 
     <div class="card">
@@ -58,7 +65,7 @@
                     </div>
                 </div>
                 <input type="hidden" name="saldo_awal" id="saldo_awal" value="0" readonly>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>
     </div>

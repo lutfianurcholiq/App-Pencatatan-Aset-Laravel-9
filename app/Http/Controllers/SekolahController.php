@@ -32,8 +32,11 @@ class SekolahController extends Controller
      */
     public function create()
     {
+        if(auth()->user()->role == 'admin'){
+            return redirect('/aset')->with('error','Tidak bisa akses halaman tersebut');
+        }
         return view('admin.sekolah.create', [
-            'title' => 'Create Data Sekolah',
+            'title' => 'Tambah Data Sekolah',
             'kotas' => Kota::all(),
         ]);
     }
@@ -99,9 +102,12 @@ class SekolahController extends Controller
      */
     public function edit(Sekolah $sekolah)
     {
+        if(auth()->user()->role == 'admin'){
+            return redirect('/aset')->with('error','Tidak bisa akses halaman tersebut');
+        }
         return view('admin.sekolah.edit', [
             'sekolahs' => $sekolah,
-            'title' => 'Edit Data Sekolah',
+            'title' => 'Ubah Data Sekolah',
             'kotas' => Kota::all(),
             'kec' => Kecamatan::all()
         ]);

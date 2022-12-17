@@ -3,9 +3,16 @@
 @section('container')
 
     <div class="row">
-        <div class="col">
+        <div class="col-md-6">
             <button class="btn btn-primary mb-2" onclick="goBack()"><i class="fas fa-arrow-left"></i> Kembali</button>
         </div>
+        <div class="col-md-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="/laporan/kartu_aset">Kartu Penyusutan</a></li>
+                <li class="breadcrumb-item active">Detail Kartu Penyusutan</li>
+            </ol>
+            </div>
     </div>
 
     <div class="card">

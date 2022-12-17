@@ -2,6 +2,15 @@
 
 @section('container')
 
+    <div class="row">
+      <div class="col">
+      <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+          <li class="breadcrumb-item active">Profile</li>
+      </ol>
+      </div>
+    </div>
+
     <div class="row mt-3">
       <div class="col-md-12">
       @if (session()->has('success'))

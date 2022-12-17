@@ -2,6 +2,15 @@
 
 @section('container')
 
+    <div class="row">
+        <div class="col">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item active">Jurnal</li>
+        </ol>
+        </div>
+    </div>
+
     <form action="/jurnal" method="POST">
         @csrf
         <div class="row">
@@ -38,7 +47,7 @@
             <h5 class="card-title">{{ $title }}</h5>
         </div>
         <div class="card-body">
-            <button class="btn btn-info mb-3 float-right" onclick="print()"><i class="nav-icon fas fa-print"> </i> Print</button>
+            <button class="btn btn-info mb-3 float-right" onclick="print()"><i class="nav-icon fas fa-print"> </i></button>
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>

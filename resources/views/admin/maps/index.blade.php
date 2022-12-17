@@ -2,7 +2,16 @@
 
 @section('container')
 
-        <div id="map" style="height: 450px;"></div>
+        <div class="row">
+            <div class="col">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item active">Maps</li>
+            </ol>
+            </div>
+        </div>
+
+        <div id="map" style="height: 450px;" class="mb-2"></div>
 
         {{-- Leaflet --}}
         {{-- Leaflet search --}}

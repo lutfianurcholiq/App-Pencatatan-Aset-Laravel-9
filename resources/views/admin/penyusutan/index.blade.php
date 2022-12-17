@@ -3,6 +3,15 @@
 @section('container')
 
     <div class="row">
+        <div class="col">
+        <ol class="breadcrumb float-sm-right mb-0">
+            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item active">Penyusutan</li>
+        </ol>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-12">
             @if (session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -149,7 +158,7 @@
                     @if ($aset[0]->status == 'telah disusutkan')
                         <p class="text-danger">*Aset ini telah disusutkan, silahkan lihat detail atau <a href="/laporan/kartu_aset/" style="text-decoration: none;">klik disini</a></p>
                     @else
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     @endif
                 </form>
             </div>

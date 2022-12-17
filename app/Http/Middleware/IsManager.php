@@ -16,7 +16,7 @@ class IsManager
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth()->user()->role !== 'manager' && Auth()->user()->role !== 'admin')
+        if(Auth()->user()->role !== 'kabag' && Auth()->user()->role !== 'admin')
         {
             return response()->view('/error/403');
         }

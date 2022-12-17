@@ -31,8 +31,11 @@ class AsetController extends Controller
      */
     public function create()
     {
+        if(auth()->user()->role == 'admin'){
+            return redirect('/aset')->with('error','Tidak bisa akses halaman tersebut');
+        }
         return view('admin.aset.create', [
-            'title' => 'Create Data Aset',
+            'title' => 'Tambah Data Aset',
             'sekolahs' => Sekolah::all()
         ]);
     }
@@ -83,7 +86,7 @@ class AsetController extends Controller
             ]);
 
             $penyusutan->asets()->sync([
-                'aset_id' => $bank
+                'aset_id' => $bank+1
             ]);
 
             $susut_id = Penyusutan::get('id')->count();
@@ -147,9 +150,12 @@ class AsetController extends Controller
      */
     public function edit(Aset $aset)
     {
+        if(auth()->user()->role == 'admin'){
+            return redirect('/aset')->with('error','Tidak bisa akses halaman tersebut');
+        }
         return view('admin.aset.edit', [
             'asets' => $aset,
-            'title' => 'Edit Data aset',
+            'title' => 'Ubah Data aset',
             'sekolahs' => Sekolah::all()
         ]);
     }

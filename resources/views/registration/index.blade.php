@@ -82,7 +82,7 @@
         </form>
         <hr>
         <p class="mb-2 mt-2">
-            Do You Have Account? <a href="/login" class="text-center"> Login Here</a>
+            Sudah Punya Akun? <a href="/login" class="text-center"> Login Disini</a>
         </p>
     </div>
   </div>

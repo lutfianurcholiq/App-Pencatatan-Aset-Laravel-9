@@ -52,13 +52,13 @@ class SekolahController extends Controller
         $request->validate([
             'nama_sekolah' => 'required|max:255',
             'kategori' => 'required',
-            'tahun' => 'required|integer',
+            'tahun' => 'required',
             'kota_id' => 'required',
             'kecamatan_id' => 'required',
             'alamat' => 'required',
             'jumlah_siswa' => 'required',
             'lokasi' => 'required',
-            'foto' => 'image|mimes:jpg,png,png|max:3048',
+            'foto' => 'required|image|mimes:jpg,png,png|max:3048',
             'deskripsi' => 'required'
         ]);
 

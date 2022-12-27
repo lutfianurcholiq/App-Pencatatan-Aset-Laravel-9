@@ -42,6 +42,7 @@
                                 <label for="tahun">Tahun Berdiri</label>
                                 <select name="tahun" id="tahun" class="form-control @error('tahun') is-invalid @enderror select2bs4" onchange="years()">
                                     <option selected="selected">Pilih Tahun</option>
+                                    {{-- <option value="" onchange="years()"></option> --}}
                                 </select>
                                 @error('tahun')
                                     <div class="invalid-feedback">
@@ -55,9 +56,27 @@
                                 <label for="kategori">Kategori</label>
                                 <select name="kategori" id="kategori" class="form-control @error('kategori') is-invalid @enderror select2bs4">
                                     <option value="">Pilih Kategori</option>
+                                    @if (old('kategori') === 'Negeri')
+                                    <option value="Negeri" selected>Negeri</option>
+                                    <option value="Swasta">Swasta</option>
+                                    <option value="Luar Biasa">Luar Biasa - SLB</option>
+                                    
+                                    @elseif(old('kategori') === 'Swasta')
+                                    <option value="Negeri">Negeri</option>
+                                    <option value="Swasta" selected>Swasta</option>
+                                    <option value="Luar Biasa">Luar Biasa - SLB</option>
+                                    
+                                    @elseif(old('kategori') === 'Luar Biasa')
+                                    <option value="Negeri">Negeri</option>
+                                    <option value="Swasta">Swasta</option>
+                                    <option value="Luar Biasa" selected>Luar Biasa - SLB</option>
+                                    
+                                    @else
                                     <option value="Negeri">Negeri</option>
                                     <option value="Swasta">Swasta</option>
                                     <option value="Luar Biasa">Luar Biasa - SLB</option>
+                                        
+                                    @endif
                                 </select>
                                 @error('kategori')
                                     <div class="invalid-feedback">
@@ -118,7 +137,7 @@
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
-                            @enderror
+                        @enderror
                     </div>
                     <div class="row">
                         <div class="col-md-6">
@@ -140,7 +159,7 @@
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
-                                    @enderror
+                                @enderror
                             </div>
                         </div>
                     </div>

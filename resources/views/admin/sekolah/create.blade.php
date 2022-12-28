@@ -40,9 +40,12 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="tahun">Tahun Berdiri</label>
-                                <select name="tahun" id="tahun" class="form-control @error('tahun') is-invalid @enderror select2bs4" onchange="years()">
-                                    <option selected="selected">Pilih Tahun</option>
-                                    {{-- <option value="" onchange="years()"></option> --}}
+                                <select name="tahun" id="tahun" class="form-control @error('tahun') is-invalid @enderror select2bs4">
+                                    @if (old('tahun') == NULL)
+                                    <option>Pilih Tahun</option>
+                                    @else
+                                    <option value="{{ old('tahun') }}" selected>{{ old('tahun') }}</option>
+                                    @endif
                                 </select>
                                 @error('tahun')
                                     <div class="invalid-feedback">
@@ -112,6 +115,15 @@
                                 <label for="kecamatan_id">Kecamatan</label>
                                 <select name="kecamatan_id" id="kecamatan_id" class="form-control @error('kecamatan_id') is-invalid @enderror select2bs4">
                                     <option value="">Pilih Kecamatan</option>
+                                    @if (old('kecamatan_id') != NULL)
+                                        @foreach ($kec as $kc)
+                                            @if (old('kecamatan_id') == $kc->id)
+                                            <option value="{{ $kc->id }}" selected>{{ $kc->nama_kecamatan }}</option>
+                                            @else
+                                            <option value="{{ $kc->id }}">{{ $kc->nama_kecamatan }}</option>
+                                            @endif
+                                        @endforeach
+                                    @endif
                                 </select>
                                 @error('kecamatan_id')
                                     <div class="invalid-feedback">

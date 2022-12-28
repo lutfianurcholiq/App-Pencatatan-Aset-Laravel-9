@@ -39,7 +39,6 @@
                         <select name="jenis_aset" id="jenis_aset" class="form-control @error('jenis_aset') is-invaid @enderror select2bs4">
                             <option value="">Pilih Jenis Aset</option>
                             <option value="aset tetap" {{ ($asets->jenis_aset === 'aset tetap') ? 'Selected' : '' }}> Aset Tetap</option>
-                            {{-- <option value="aset lancar" {{ ($asets->jenis_aset === 'aset lancar') ? 'Selected' : '' }}> Aset Lancar</option> --}}
                         </select>
                         @error('jenis_aset')
                             <div class="invalid-feedback">
@@ -71,8 +70,8 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="tahun">Tahun Beli</label>
-                        <select name="tahun" id="tahun" class="form-control @error('tahun') is-invalid @enderror select2bs4" onchange="years()">
-                            <option selected="selected">Pilih Tahun</option>
+                        <select name="tahun" id="tahun" class="form-control @error('tahun') is-invalid @enderror select2bs4">
+                            <option>Pilih Tahun</option>
                             @if (old('tahun', $asets->tahun) == $asets->tahun)
                                 <option value="{{ $asets->tahun }}" selected>{{ $asets->tahun }}</option>
                             @endif

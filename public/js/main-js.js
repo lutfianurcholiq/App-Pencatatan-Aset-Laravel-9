@@ -79,7 +79,7 @@ $('#deskripsi').summernote({
 
     var currentYear = (new Date()).getFullYear();
 
-    for (var i = 1950; i <= currentYear; i++) {
+    for (var i = 1940; i <= currentYear; i++) {
 
       var option = document.createElement("option");
       option.innerHTML = i;

@@ -38,6 +38,7 @@ class SekolahController extends Controller
         return view('admin.sekolah.create', [
             'title' => 'Tambah Data Sekolah',
             'kotas' => Kota::all(),
+            'kec' => Kecamatan::all()
         ]);
     }
 

@@ -41,7 +41,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="tahun">Tahun Berdiri</label>
-                                <select name="tahun" id="tahun" class="form-control @error('tahun') is-invalid @enderror select2bs4" onchange="years()">
+                                <select name="tahun" id="tahun" class="form-control @error('tahun') is-invalid @enderror select2bs4">
                                     <option>Pilih Tahun</option>
                                     @if (old('tahun', $sekolahs->tahun) == $sekolahs->tahun)
                                         <option value="{{ $sekolahs->tahun }}" selected>{{ $sekolahs->tahun }}</option>
@@ -97,6 +97,13 @@
                                 <label for="kecamatan_id">Kecamatan</label>
                                 <select name="kecamatan_id" id="kecamatan_id" class="form-control @error('kecamatan_id') is-invalid @enderror select2bs4">
                                     <option value="">Pilih Kecamatan</option>
+                                    @foreach ($kec as $kc)
+                                        @if (old('kecamatan_id', $sekolahs->kecamatan_id) == $kc->id)
+                                        <option value="{{ $kc->id }}" selected>{{ $kc->nama_kecamatan }}</option>
+                                        @else
+                                        <option value="{{ $kc->id }}">{{ $kc->nama_kecamatan }}</option>
+                                        @endif
+                                    @endforeach
                                 </select>
                                 @error('kecamatan_id')
                                     <div class="invalid-feedback">

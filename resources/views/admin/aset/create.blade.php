@@ -87,8 +87,11 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="tahun">Tahun Beli</label>
-                        <select name="tahun" id="tahun" class="form-control @error('tahun') is-invalid @enderror select2bs4" onchange="years()">
-                            <option selected="selected">Pilih Tahun</option>
+                        <select name="tahun" id="tahun" class="form-control @error('tahun') is-invalid @enderror select2bs4">
+                            <option>Pilih Tahun</option>
+                            @if (old('tahun') != NULL)
+                            <option value="{{ old('tahun') }}" selected>{{ old('tahun') }}</option>
+                            @endif
                         </select>
                         @error('tahun')
                             <div class="invalid-feedback">

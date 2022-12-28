@@ -29,9 +29,9 @@ class DashboardController extends Controller
                         ->select('kecamatans.nama_kecamatan', DB::raw('COUNT(sekolahs.id) as jmlh_sklh'))
                         ->join('kecamatans','kecamatans.id','=','sekolahs.kecamatan_id')
                         ->groupBy('kecamatans.nama_kecamatan')
-                        ->pluck('jmlh_sklh');
+                        ->pluck('jmlh_sklh','nama_kecamatan');
             
-            // return $kategoris;
+            // return $jmlh_sklh;
             
             return view('admin.dashboard.index', [
                 'asets' => $aset,

@@ -32,7 +32,6 @@
                   <div class="icon">
                       <i class="fas fa-school"></i>
                   </div>
-                  <a href="/aset" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
               </div>
               <div class="col-lg-3 col-3">
@@ -44,7 +43,6 @@
                   <div class="icon">
                     <i class="ion ion-stats-bars"></i>
                   </div>
-                  <a href="/aset" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
               </div>
               <div class="col-lg-3 col-3">
@@ -56,7 +54,6 @@
                   <div class="icon">
                     <i class="ion ion-person-add"></i>
                   </div>
-                  <a href="/aset" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
               </div>
               <div class="col-lg-3 col-3">
@@ -68,7 +65,6 @@
                   <div class="icon">
                     <i class="ion ion-person-add"></i>
                   </div>
-                  <a href="/aset" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
               </div>
             </div>
@@ -168,15 +164,6 @@
             borderWidth: 1
           }]
         },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero:true
-              }
-            }]
-          }
-        }
       });
       // const ctx = document.getElementById('barChart');
       // const myChart = new Chart(ctx, {

@@ -59,8 +59,8 @@ Route::get('/penyusutan/getaset/{id}', [SelectedController::class, 'getAset']);
 // Laporan
 Route::get('/laporan/kartu_aset', [LaporanController::class, 'kartu_aset'])->middleware(['auth','manager']);
 Route::get('/laporan/kartu_aset/detail/{id}', [LaporanController::class, 'detail_kartu_aset'])->middleware(['auth','manager']);
-Route::get('/jurnal', [JurnalController::class, 'index'])->middleware(['auth','manager']);
-Route::post('/jurnal', [JurnalController::class,'cari_tanggal'])->middleware(['auth','manager']);
+Route::get('/jurnal', [JurnalController::class, 'index'])->middleware(['auth','staff']);
+Route::post('/jurnal', [JurnalController::class,'cari_tanggal'])->middleware(['auth','staff']);
 
 // Sekolah
 Route::resource('/sekolah', SekolahController::class)->middleware(['auth','staff']);

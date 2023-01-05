@@ -49,7 +49,9 @@
           <li class="nav-item">
             <a href="/maps" class="nav-link {{ Request::is('maps*') ? 'active' : '' }}"><i class="nav-icon far fa-map"></i> <p>Maps</p></a>
           </li>
+          @endcan
           <li class="nav-header">Laporan</li>
+          @can('IsManager')
           <li class="nav-item">
             <a href="" class="nav-link  {{ Request::is('laporan*') ? 'active' : '' }}">
               <i class="nav-icon far fa-folder"></i>
@@ -64,6 +66,8 @@
               </li>
             </ul>
           </li>
+          @endcan
+          @can('IsStaff')
           <li class="nav-item">
             <a href="/jurnal" class="nav-link {{ Request::is('jurnal*') ? 'active' : '' }}"><i class="nav-icon fas fa-receipt"></i> <p>Jurnal</p></a>
           </li>

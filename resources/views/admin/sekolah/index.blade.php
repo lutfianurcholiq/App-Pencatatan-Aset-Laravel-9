@@ -95,7 +95,7 @@
                 </div>
                 {{-- End Modal Delete --}}
 
-                <!-- Modal Detail -->
+                <!-- Modal Foto -->
                 <div class="modal fade" id="modalFoto{{ $sekolah->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -106,7 +106,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <img src="{{ asset('storage/'. $sekolah->foto) }}" alt="" width="500px">
+                            <img src="{{ asset('storage/'. $sekolah->foto) }}" alt="" width="700px">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -114,7 +114,7 @@
                     </div>
                     </div>
                 </div>
-                {{-- End Modal Detail --}}
+                {{-- End Modal Foto --}}
 
                 @endforeach
             </table>

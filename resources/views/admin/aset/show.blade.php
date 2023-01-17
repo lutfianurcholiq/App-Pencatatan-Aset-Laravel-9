@@ -27,23 +27,23 @@
                         <tbody>
                             <tr>
                                 <td>Nama Aset</td>
-                                <td>{{ $asets->nama_aset }}</td>
+                                <td><b>{{ $asets->nama_aset }}</b></td>
                             </tr>
                             <tr>
                                 <td>Sekolah</td>
-                                <td>{{ $asets->sekolah->nama_sekolah }}</td>
+                                <td><b>{{ $asets->sekolah->nama_sekolah }}</b></td>
                             </tr>
                             <tr>
                                 <td>Jenis Aset</td>
-                                <td class="text-uppercase">{{ $asets->jenis_aset }}</td>
+                                <td class="text-uppercase"><b>{{ $asets->jenis_aset }}</b></td>
                             </tr>
                             <tr>
                                 <td>Tahun Perolehan Aset</td>
-                                <td>{{ $asets->tahun }}</td>
+                                <td><b>{{ $asets->tahun }}</b></td>
                             </tr>
                             <tr>
                                 <td>Harga Perolehan Aset</td>
-                                <td>@mataUang($asets->harga_beli)</td>
+                                <td><b>@mataUang($asets->harga_beli)</b></td>
                             </tr>
                             <tr>
                                 <td>Status Aset</td>
@@ -57,7 +57,7 @@
                     </table>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ asset('storage/'. $asets->foto_aset) }}" alt="foto aset" width="180px" style="display: block; margin: auto;">
+                    <img src="{{ asset('storage/'. $asets->foto_aset) }}" alt="foto aset" width="400px" style="display: block; margin: auto;">
                 </div>
             </div>
         </div>

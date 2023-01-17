@@ -62,6 +62,7 @@
                                 <option value="">Pilih Kategori</option>
                                 <option value="Swasta" {{ ($sekolahs->kategori === 'Swasta') ? 'Selected' : '' }} >Swasta</option>
                                 <option value="Negeri" {{ ($sekolahs->kategori === 'Negeri') ? 'Selected' : '' }}>Negeri</option>
+                                <option value="Luar Biasa" {{ ($sekolahs->kategori === 'Luar Biasa') ? 'Selected' : '' }}>Luar Biasa</option>
                                 </select>
                                 @error('kategori')
                                     <div class="invalid-feedback">

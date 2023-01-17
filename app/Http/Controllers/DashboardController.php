@@ -32,6 +32,7 @@ class DashboardController extends Controller
                         ->pluck('jmlh_sklh','nama_kecamatan');
             
             // return $jmlh_sklh;
+            // return $jmlh_aset;
             
             return view('admin.dashboard.index', [
                 'asets' => $aset,

@@ -49,6 +49,7 @@
                     <th>No</th>
                     <th>Nama Aset</th>
                     <th>Sekolah</th>
+                    <th>Foto Aset</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -60,6 +61,12 @@
                         <td>{{ $aset->nama_aset }}</td>
                         <td>{{ $aset->sekolah->nama_sekolah }}</td>
                         <td>
+                            <button class="" style="border: none" data-toggle="modal" data-target="#modalFoto{{ $aset->id }}">
+                                <img src="{{ asset('storage/'. $aset->foto_aset) }}" width="90px" alt="Foto Aset {{ $aset->nama_aset }}">
+                            </button>
+                        </td>
+                        <td>
+                            {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDetailAset{{ $aset->id }}"><i class="nav-icon fas fa-eye"></i></button> --}}
                             <a href="/aset/{{ $aset->id }}" class="btn btn-primary ml-1"><i class="nav-icon fas fa-eye"></i></a>
                             @if (auth()->user()->role != 'admin')
                             <a href="/aset/{{ $aset->id }}/edit" class="btn btn-secondary ml-1"><i class="nav-icon fas fa-edit"></i></a>
@@ -69,6 +76,7 @@
                     </tr>
                 @endforeach
             </tbody>
+
             @foreach ($asets as $aset)
             <!-- Modal Foto -->
                 <div class="modal fade" id="modalFoto{{ $aset->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -81,7 +89,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <img src="{{ asset('storage/'. $aset->foto_aset) }}" class="rounded-sm" alt="foto aset" width="500px">
+                            <img src="{{ asset('storage/'. $aset->foto_aset) }}" class="rounded-sm" alt="foto aset" width="500px" height="auto">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -89,7 +97,38 @@
                     </div>
                     </div>
                 </div>
-            {{-- end Modal --}}
+            {{-- end Modal Foto --}}
+
+            {{-- Modal Detail Aset --}}
+                <div class="modal fade" id="modalDetailAset{{ $aset->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Detail Aset {{ $aset->nama_aset }}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                                <div class="modal-body">
+                                    <p>Nama Aset : <b>{{ $aset->nama_aset }}</b></p>
+                                    <p>Sekolah : <b>{{ $aset->sekolah->nama_sekolah }}</b></p>
+                                    <p>Jenis Aset : <b class="text-uppercase">{{ $aset->jenis_aset }}</b></p>
+                                    <p>Tahun Perolehan Aset : <b>{{ $aset->nama_aset }}</b></p>
+                                    <p>Harga Perolehan Aset : <b>@mataUang($aset->harga_beli)</p>
+                                    @if ($aset->status == 'telah disusutkan')
+                                        <p>Status Aset : <span class="badge badge-success">{{ $aset->status }}</span></p>
+                                    @else
+                                        <p>Status Aset : <span class="badge badge-danger">{{ $aset->status }}</span></p>
+                                    @endif
+                                </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{-- End Modal Detail Aset --}}
+
             <!-- Modal Hapus Aset -->
                 <div class="modal fade" id="hapusAset{{ $aset->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">

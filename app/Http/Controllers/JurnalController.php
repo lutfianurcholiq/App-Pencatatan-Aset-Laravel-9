@@ -16,7 +16,10 @@ class JurnalController extends Controller
                     ->join('coas','coas.id','=','jurnals.coa_id')
                     ->join('penyusutans','penyusutans.id','=','jurnals.penyusutan_id')
                     ->join('sekolahs','sekolahs.id','=','penyusutans.sekolah_id')
-                    ->get();
+                    ->groupBy('jurnals.id')
+                    ->paginate(10);
+
+        // return $cari;
         
         return view('admin.laporan.jurnal.index', [
             'title' => 'Jurnal',

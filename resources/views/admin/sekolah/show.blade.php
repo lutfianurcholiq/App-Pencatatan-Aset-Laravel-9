@@ -36,6 +36,10 @@
                                     <td><b>{{ $sekolahs->tahun }}</b></td>
                                 </tr>
                                 <tr>
+                                    <td>Jumlah Aset</td>
+                                    <td><b>{{ $aset }}</b><button type="button" class="btn btn-primary float-right mr-3" data-toggle="modal" data-target="#detailAset">Lihat Aset</button></td>
+                                </tr>
+                                <tr>
                                     <td>Jumlah Siswa</td>
                                     <td><b>{{ number_format($sekolahs->jumlah_siswa) }}</b> Siswa</td>
                                 </tr>
@@ -57,6 +61,42 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <!-- Modal -->
+                        <div class="modal fade" id="detailAset" tabindex="-1" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                            <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{{ $title }}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <th>Nama Aset</th>
+                                            <th>Status Aset</th>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($asets as $st)
+                                                <tr>
+                                                    <td>{{ $st->nama_aset }}</td>
+                                                    @if ($st->status == 'belum disusutkan')
+                                                        <td><span class="badge badge-danger">{{ $st->status }}</span></td>
+                                                    @else
+                                                        <td><span class="badge badge-success">{{ $st->status }}</span></td>
+                                                    @endif
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
                 </div>
                 <div class="col-lg-6">
                     <div id="map" style="height: 500px"></div>

@@ -13,6 +13,46 @@
 
         <div id="map" style="height: 450px;" class="mb-2"></div>
 
+        <!-- Modal -->
+        @foreach ($aset as $st)
+        <div class="modal fade" id="detailAset{{ $st->id  }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Detail Aset - {{ $st->nama_sekolah }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        {{-- <h6>Jumlah Aset : {{ $jmlh->jmlh_aset }}</h6> --}}
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <th>Nama Aset</th>
+                                <th>Tahun Aset</th>
+                                <th>Harga Perolehan Aset</th>
+                                <th>Status Aset</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ $st->nama_aset }}</td>
+                                    <td>{{ $st->tahun }}</td>
+                                    <td>@mataUang($st->harga_beli)</td>
+                                    @if ($st->status == 'telah disusutkan')
+                                        <td><span class="badge badge-success">{{ $st->status }}</span></td>
+                                    @else
+                                        <td><span class="badge badge-danger">{{ $st->status }}</span></td>
+                                    @endif
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+        
         {{-- Leaflet --}}
         {{-- Leaflet search --}}
         <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
@@ -102,13 +142,14 @@
                         );
                     markersLayer.addLayer(marker);
 
-                    @foreach($sekolahs as $sekolah)
-                        L.marker([{{ $sekolah->lokasi }}])
-                        .bindPopup(
-                            "<div>{{ $sekolah->nama_sekolah }}</div>" + 
-                            "<div><a href='/sekolah/{{ $sekolah->id }}' class='btn btn-primary btn-sm text-white' style='text-decoration:none'>Detail</a></div>" +
-                            "<div></div>"
-                        ).addTo(maps);
+                    @foreach($aset as $st)
+                        L.marker([{{ $st->lokasi }}])
+                            .bindPopup(
+                                "<div align='center'><b>{{ $st->nama_sekolah }}</b></div>" +
+                                "<div><img class='mb-3 mt-3 justify-content-center' src='{{ asset('storage/'. $st->foto) }}' alt='Foto {{ $st->nama_sekolah }}' width='150px'></div>" + 
+                                "<div><button type='button'class='btn btn-primary btn-sm btn-block' data-toggle='modal' data-target='#detailAset{{ $st->id }}'>Detail Aset</button></div>" +
+                                "<div></div>"
+                            ).addTo(maps);
                     @endforeach
 
                 }

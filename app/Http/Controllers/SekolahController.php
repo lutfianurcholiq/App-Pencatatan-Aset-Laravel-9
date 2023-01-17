@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kota;
+use App\Models\Aset;
 use App\Models\Sekolah;
 use App\Models\Kecamatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class SekolahController extends Controller
 {
@@ -89,9 +91,20 @@ class SekolahController extends Controller
      */
     public function show(Sekolah $sekolah)
     {
+        $aset = DB::table('sekolahs')
+                        ->select('asets.nama_aset','asets.status')
+                        ->join('asets','sekolahs.id','=','asets.sekolah_id')
+                        ->where('asets.sekolah_id',$sekolah->id)
+                        ->get();
+
+        $jmlh_aset = Aset::where('sekolah_id',$sekolah->id)->count();
+        // return $aset;
+
         return view('admin.sekolah.show', [
             'sekolahs' => $sekolah,
-            'title' => 'Detail Data Sekolah'
+            'title' => 'Detail Data Sekolah',
+            'aset' => $jmlh_aset,
+            'asets' => $aset
         ]);
     }
 

@@ -44,11 +44,11 @@
             <a href="/penyusutan" class="nav-link {{ Request::is('penyusutan*') ? 'active' : '' }}"><i class="nav-icon fas fa-calculator"></i> <p>Penyusutan</p></a>
           </li>
           @endcan
-          @can('IsManager')
           <li class="nav-header">Maps</li>
           <li class="nav-item">
             <a href="/maps" class="nav-link {{ Request::is('maps*') ? 'active' : '' }}"><i class="nav-icon far fa-map"></i> <p>Maps</p></a>
           </li>
+          @can('IsManager')
           @endcan
           <li class="nav-header">Laporan</li>
           @can('IsManager')

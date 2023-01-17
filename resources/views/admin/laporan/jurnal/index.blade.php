@@ -62,26 +62,29 @@
                     @foreach ($jurnals as $jurnal)
                         <tr>
                             <td>{{ $jurnal->tgl_jurnal }}</td>
-                            @if ($jurnal->posisi_dr_cr == 'Debit')
-                                <td>{{ $jurnal->nama_coa }} - {{ $jurnal->nama_sekolah }}</td>
-                            @else
-                                <td style="text-indent: 0.5in">{{ $jurnal->nama_coa }} - {{ $jurnal->nama_sekolah }}</td>
-                            @endif
+                                @if ($jurnal->nama_coa === 'Beban Akumulasi Penyusutan')
+                                    <td>{{ $jurnal->nama_coa }} - {{ $jurnal->nama_sekolah }}</td>
+                                @else
+                                    <td style="text-indent: 0.5in">{{ $jurnal->nama_coa }} - {{ $jurnal->nama_sekolah }}</td>
+                                @endif
                             <td>{{ $jurnal->no_coa }}</td>
-                            @if ($jurnal->posisi_dr_cr == 'Debit')
-                                <td>@mataUang($jurnal->nominal)</td>
-                            @else
-                                <td></td>
-                            @endif
-                            @if ($jurnal->posisi_dr_cr == 'Kredit')
-                                <td>@mataUang($jurnal->nominal)</td>
-                            @else
-                                <td></td>
-                            @endif
+                                @if ($jurnal->posisi_dr_cr == 'Debit')
+                                    <td>@mataUang($jurnal->nominal)</td>
+                                @else
+                                    <td></td>
+                                @endif
+                                @if ($jurnal->posisi_dr_cr == 'Kredit')
+                                    <td>@mataUang($jurnal->nominal)</td>
+                                @else
+                                    <td></td>
+                                @endif
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+            <div class="mt-3 d-flex justify-content-center">
+                {{ $jurnals->links() }}
+            </div>
         </div>
     </div>
     
